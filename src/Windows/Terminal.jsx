@@ -2,18 +2,19 @@ import React from 'react'
 import WindowWrapper from "#hoc/windowWrapper.jsx";
 import {techStack} from "#constants/index.js";
 import {Check, Flag} from "lucide-react";
+import WindowControls from "#components/WindowControls.jsx";
 
 const Terminal = () => {
     return (
         <>
             <div id="window-header">
-                <p>Windows Controls</p>
-                    <h2>
+                <WindowControls windowKey="terminal"/>
+                    <h2 className="text-gray-800">
                         Tech stack
                     </h2>
             </div>
 
-            <div className="techstack">
+            <div className="techstack text-gray-800">
                 <p>
                     <span className="font-bold">
                         @Rakesh %
