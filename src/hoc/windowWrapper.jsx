@@ -2,6 +2,8 @@ import React, {useRef} from 'react'
 import useWindowStore from "#store/window.jsx";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
+import {Draggable} from "gsap/Draggable";
+
 
 const WindowWrapper = (Component, windowKey) => {
     const Wrapped = (props) => {
@@ -33,6 +35,13 @@ const WindowWrapper = (Component, windowKey) => {
                 });
             }
         }, {scope: ref, dependencies: [isOpen]});
+
+        useGSAP(() => {
+            const el = ref.current;
+            if(!el) return;
+
+            Draggable.create(el, {onPress: () => focusWindow(windowKey)});
+        }, [])
 
         return (
             <section id={windowKey} ref={ref} style={{zIndex, display: 'none'}} className="absolute">
