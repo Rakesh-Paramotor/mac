@@ -7,7 +7,7 @@ import useWindowStore from "#store/window.jsx";
 
 
 const Dock = () => {
-    const {openWindow, closeWindow, windows} = useWindowStore()
+    const {openWindow, closeWindow, window: windows} = useWindowStore()
     const dockRef = useRef(null);
 
     useGSAP(() => {
