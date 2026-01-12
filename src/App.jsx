@@ -1,6 +1,6 @@
 import React from 'react'
 import {Navbar, Welcome, Dock} from './components/index.js'
-import { Terminal, Safari } from '#Windows/index.js';
+import { Terminal, Safari, Resume } from '#Windows/index.js';
 import gsap from "gsap";
 import {Draggable} from "gsap/Draggable";
 
@@ -14,6 +14,7 @@ const App = () => {
             <Dock />
             <Terminal />
             <Safari />
+            <Resume />
         </main>
     )
 }
