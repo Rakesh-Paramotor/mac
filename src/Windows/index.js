@@ -1,4 +1,2 @@
-import Terminal from "#Windows/Terminal.jsx";
-import Safari from "#Windows/Safari.jsx";
-
-export {Terminal, Safari};
+export { default as Terminal } from './Terminal.jsx';
+export { default as Safari } from './Safari.jsx';
