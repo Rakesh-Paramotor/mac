@@ -13,13 +13,17 @@ const Text = ({ data }) => {
         <WindowControls windowKey="txtfile" />
         <h2 className="text-gray-800">{name}</h2>
       </div>
-      <div className="text-window-content p-4 bg-white rounded-b-lg">
-        {image && <img src={image} alt={name} className="w-full h-auto mb-4" />}
-        <h1 className="text-2xl font-bold">{name}</h1>
-        {subtitle && <h2 className="text-lg text-gray-500 mb-4">{subtitle}</h2>}
+      <div className="p-5 bg-white rounded-b-lg h-96 overflow-y-auto">
+        {image && (
+          <div className="flex justify-center mb-4">
+            <img src={image} alt={name} className="max-h-48" />
+          </div>
+        )}
+        <p className="text-2xl font-bold mb-2">{name}</p>
+        {subtitle && <p className="text-lg text-gray-500 mb-4">{subtitle}</p>}
         {description &&
           description.map((paragraph, index) => (
-            <p key={index} className="mb-4">
+            <p key={index} className="mb-4 text-gray-800">
               {paragraph}
             </p>
           ))}
