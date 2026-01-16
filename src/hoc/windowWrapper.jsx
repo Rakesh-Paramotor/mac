@@ -9,8 +9,12 @@ gsap.registerPlugin(Draggable);
 const WindowWrapper = (Component, windowKey) => {
     const Wrapped = (props) => {
         const { focusWindow, window: windows } = useWindowStore();
-        const { isOpen, zIndex } = windows[windowKey];
 
+        // ✅ SAFETY: if this key doesn't exist in WINDOW_CONFIG, don't crash
+        const win = windows?.[windowKey];
+        if (!win) return null;
+
+        const { isOpen, zIndex, data } = win;
         const ref = useRef(null);
 
         useGSAP(
@@ -19,7 +23,7 @@ const WindowWrapper = (Component, windowKey) => {
                 if (!el) return;
 
                 if (isOpen) {
-                    el.style.display = "inline-block"; // ✅ inline-block shrink wraps nicely
+                    el.style.display = "inline-block";
                     gsap.fromTo(
                         el,
                         { scale: 0.8, opacity: 0, y: 40 },
@@ -63,20 +67,17 @@ const WindowWrapper = (Component, windowKey) => {
                 style={{
                     zIndex,
                     display: "none",
-                    top: 80,   // ✅ initial position so it doesn't start awkwardly
+                    top: 80,
                     left: 80,
                 }}
                 className="absolute w-fit h-fit"
             >
-                <Component {...props} />
+                <Component {...props} data={data} />
             </section>
         );
     };
 
-    Wrapped.displayName = `WindowWrapper(${
-        Component.displayName || Component.name || "Component"
-    })`;
-
+    Wrapped.displayName = `WindowWrapper(${Component.displayName || Component.name || "Component"})`;
     return Wrapped;
 };
 

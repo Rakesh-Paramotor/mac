@@ -2,3 +2,6 @@ export { default as Terminal } from './Terminal.jsx';
 export { default as Safari } from './Safari.jsx';
 export { default as Resume } from './Resume.jsx';
 export { default as Finder } from './Finder.jsx';
+export { default as ImageFile } from './ImageFile.jsx';
+
+export { default as Text } from './Text.jsx';
