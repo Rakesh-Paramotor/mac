@@ -135,13 +135,6 @@ const socials = [
         link: "https://github.com/JavaScript-Mastery-Pro",
     },
     {
-        id: 2,
-        text: "Platform",
-        icon: "/icons/atom.svg",
-        bg: "#4bcb63",
-        link: "https://jsmastery.com/",
-    },
-    {
         id: 3,
         text: "Twitter/X",
         icon: "/icons/twitter.svg",
