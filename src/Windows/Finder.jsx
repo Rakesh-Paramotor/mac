@@ -24,6 +24,11 @@ const Finder = () => {
             return;
         }
 
+        if (item.fileType === "txt") {
+            openWindow("txtfile", item);
+            return;
+        }
+
         // external link -> open in new tab
         if (["fig", "url"].includes(item.fileType) && item.href) {
             window.open(item.href, "_blank");

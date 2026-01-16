@@ -9,7 +9,7 @@ gsap.registerPlugin(Draggable);
 const WindowWrapper = (Component, windowKey) => {
     const Wrapped = (props) => {
         const { focusWindow, window: windows } = useWindowStore();
-        const { isOpen, zIndex } = windows[windowKey];
+        const { isOpen, zIndex, data } = windows[windowKey];
 
         const ref = useRef(null);
 
@@ -68,7 +68,7 @@ const WindowWrapper = (Component, windowKey) => {
                 }}
                 className="absolute w-fit h-fit"
             >
-                <Component {...props} />
+                <Component {...props} data={data} />
             </section>
         );
     };
