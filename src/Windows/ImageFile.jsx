@@ -12,12 +12,14 @@ const ImageFile = () => {
     }
 
     return (
-        <div className="w-full h-full bg-black flex items-center justify-center">
-            <div id="window-header" className="top-0 left-0 absolute">
+        <div className="bg-white">
+            <div id="window-header">
                 <WindowControls windowKey="imgfile" />
-                <h2 className="text-white">{data.name}</h2>
+                <h2>{data.name}</h2>
             </div>
-            <img src={data.imageUrl} alt={data.name} className="max-w-full max-h-full" />
+            <div className="p-4">
+                <img src={data.imageUrl} alt={data.name} className="max-w-xl max-h-xl" />
+            </div>
         </div>
     );
 };
