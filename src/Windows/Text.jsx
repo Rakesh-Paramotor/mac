@@ -13,7 +13,7 @@ const Text = ({ data }) => {
         <WindowControls windowKey="txtfile" />
         <h2 className="text-gray-800">{name}</h2>
       </div>
-      <div className="p-5 bg-white rounded-b-lg h-96 overflow-y-auto">
+      <div className="p-5 bg-white rounded-b-lg h-96 overflow-y-auto max-w-xl">
         {image && (
           <div className="flex justify-center mb-4">
             <img src={image} alt={name} className="max-h-48" />
